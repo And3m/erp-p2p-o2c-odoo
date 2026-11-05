@@ -1,0 +1,2 @@
+invoice_no,customer,invoice_date,due_date,amount_total,open_amount,payment_state,days_past_due
+INV/26-27/0002,Green Valley Mart,2026-11-05,2026-11-05,50008.4,20003.36,partial,0

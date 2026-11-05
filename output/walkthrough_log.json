@@ -1,0 +1,613 @@
+[
+  {
+    "cycle": "OPEN",
+    "step": "0. Opening capital",
+    "document": "Manual journal",
+    "note": "Owners introduce working capital into the bank account before trading starts.",
+    "entries": [
+      {
+        "move": "MISC/26-27/11/0001",
+        "date": "2026-11-05",
+        "journal": "Miscellaneous Operations",
+        "lines": [
+          {
+            "account": "100201 Bank",
+            "label": "Share capital introduced",
+            "debit": 500000.0,
+            "credit": 0.0
+          },
+          {
+            "account": "110100 Share Capital",
+            "label": "Share capital introduced",
+            "debit": 0.0,
+            "credit": 500000.0
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cycle": "P2P-1",
+    "step": "1. Request for quotation",
+    "document": "P00001",
+    "note": "Draft purchase order. No accounting impact.",
+    "entries": []
+  },
+  {
+    "cycle": "P2P-1",
+    "step": "2. Confirm purchase order",
+    "document": "P00001",
+    "note": "Commitment to the vendor. Still no journal entry: nothing has been received or billed.",
+    "entries": []
+  },
+  {
+    "cycle": "P2P-1",
+    "step": "3. Goods receipt (GRN)",
+    "document": "WH/IN/00001",
+    "note": "Stock enters the warehouse at purchase cost. Inventory is debited against the Stock Interim (Received) clearing account until the vendor bill arrives.",
+    "entries": [
+      {
+        "move": "STJ/26-27/11/0001",
+        "date": "2026-11-05",
+        "journal": "Inventory Valuation",
+        "lines": [
+          {
+            "account": "100320 Stock Interim (Received)",
+            "label": "WH/IN/00001 - Detergent Powder 1kg",
+            "debit": 0.0,
+            "credit": 55200.0
+          },
+          {
+            "account": "100310 Inventories",
+            "label": "WH/IN/00001 - Detergent Powder 1kg",
+            "debit": 55200.0,
+            "credit": 0.0
+          }
+        ]
+      },
+      {
+        "move": "STJ/26-27/11/0003",
+        "date": "2026-11-05",
+        "journal": "Inventory Valuation",
+        "lines": [
+          {
+            "account": "100320 Stock Interim (Received)",
+            "label": "WH/IN/00001 - Toilet Soap 100g x4",
+            "debit": 0.0,
+            "credit": 47200.0
+          },
+          {
+            "account": "100310 Inventories",
+            "label": "WH/IN/00001 - Toilet Soap 100g x4",
+            "debit": 47200.0,
+            "credit": 0.0
+          }
+        ]
+      },
+      {
+        "move": "STJ/26-27/11/0002",
+        "date": "2026-11-05",
+        "journal": "Inventory Valuation",
+        "lines": [
+          {
+            "account": "100320 Stock Interim (Received)",
+            "label": "WH/IN/00001 - Shampoo 340ml",
+            "debit": 0.0,
+            "credit": 46500.0
+          },
+          {
+            "account": "100310 Inventories",
+            "label": "WH/IN/00001 - Shampoo 340ml",
+            "debit": 46500.0,
+            "credit": 0.0
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cycle": "P2P-1",
+    "step": "4. Vendor bill (3-way match)",
+    "document": "BILL/26-27/11/0001",
+    "note": "Bill matched to the PO and the receipt. It clears Stock Interim (Received), books input CGST and SGST as recoverable credit, and raises the payable to the vendor.",
+    "entries": [
+      {
+        "move": "BILL/26-27/11/0001",
+        "date": "2026-11-05",
+        "journal": "Vendor Bills",
+        "lines": [
+          {
+            "account": "100320 Stock Interim (Received)",
+            "label": "Detergent Powder 1kg",
+            "debit": 55200.0,
+            "credit": 0.0
+          },
+          {
+            "account": "100320 Stock Interim (Received)",
+            "label": "Toilet Soap 100g x4",
+            "debit": 47200.0,
+            "credit": 0.0
+          },
+          {
+            "account": "100320 Stock Interim (Received)",
+            "label": "Shampoo 340ml",
+            "debit": 46500.0,
+            "credit": 0.0
+          },
+          {
+            "account": "100510 SGST Receivable",
+            "label": "9% SGST P",
+            "debit": 13401.0,
+            "credit": 0.0
+          },
+          {
+            "account": "100520 CGST Receivable",
+            "label": "9% CGST P",
+            "debit": 13401.0,
+            "credit": 0.0
+          },
+          {
+            "account": "112110 Creditors",
+            "label": "KPC/0001",
+            "debit": 0.0,
+            "credit": 175702.0
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cycle": "P2P-1",
+    "step": "5. Vendor payment",
+    "document": "BILL/26-27/11/0001",
+    "note": "Payment clears the payable. Odoo posts to Outstanding Payments until the bank statement line is reconciled.",
+    "entries": [
+      {
+        "move": "PBNK1/26-27/0001",
+        "date": "2026-11-05",
+        "journal": "Bank",
+        "lines": [
+          {
+            "account": "100204 Outstanding Payments",
+            "label": "Manual Payment: KPC/0001",
+            "debit": 0.0,
+            "credit": 175702.0
+          },
+          {
+            "account": "112110 Creditors",
+            "label": "Manual Payment: KPC/0001",
+            "debit": 175702.0,
+            "credit": 0.0
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cycle": "O2C-1",
+    "step": "1. Quotation",
+    "document": "S00001",
+    "note": "Draft sales quotation. No accounting impact.",
+    "entries": []
+  },
+  {
+    "cycle": "O2C-1",
+    "step": "2. Confirm sales order",
+    "document": "S00001",
+    "note": "Customer commitment and stock reservation. No journal entry yet.",
+    "entries": []
+  },
+  {
+    "cycle": "O2C-1",
+    "step": "3. Delivery",
+    "document": "WH/OUT/00001",
+    "note": "Goods leave at average cost: Inventory is credited against the Stock Interim (Delivered) clearing account.",
+    "entries": [
+      {
+        "move": "STJ/26-27/11/0004",
+        "date": "2026-11-05",
+        "journal": "Inventory Valuation",
+        "lines": [
+          {
+            "account": "100310 Inventories",
+            "label": "WH/OUT/00001 - Detergent Powder 1kg",
+            "debit": 0.0,
+            "credit": 22080.0
+          },
+          {
+            "account": "100330 Stock Interim (Delivered)",
+            "label": "WH/OUT/00001 - Detergent Powder 1kg",
+            "debit": 22080.0,
+            "credit": 0.0
+          }
+        ]
+      },
+      {
+        "move": "STJ/26-27/11/0005",
+        "date": "2026-11-05",
+        "journal": "Inventory Valuation",
+        "lines": [
+          {
+            "account": "100310 Inventories",
+            "label": "WH/OUT/00001 - Toilet Soap 100g x4",
+            "debit": 0.0,
+            "credit": 17700.0
+          },
+          {
+            "account": "100330 Stock Interim (Delivered)",
+            "label": "WH/OUT/00001 - Toilet Soap 100g x4",
+            "debit": 17700.0,
+            "credit": 0.0
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cycle": "O2C-1",
+    "step": "4. Customer invoice",
+    "document": "INV/26-27/0001",
+    "note": "Revenue and output GST recognised (fiscal position: Within Karnataka). With perpetual inventory Odoo also moves the cost of the delivered goods from Stock Interim (Delivered) into Cost of Goods Sold, matching cost to revenue.",
+    "entries": [
+      {
+        "move": "INV/26-27/0001",
+        "date": "2026-11-05",
+        "journal": "Customer Invoices",
+        "lines": [
+          {
+            "account": "200110 Local Sales",
+            "label": "Detergent Powder 1kg",
+            "debit": 0.0,
+            "credit": 30000.0
+          },
+          {
+            "account": "200110 Local Sales",
+            "label": "Toilet Soap 100g x4",
+            "debit": 0.0,
+            "credit": 24000.0
+          },
+          {
+            "account": "112320 SGST Payable",
+            "label": "9% SGST S",
+            "debit": 0.0,
+            "credit": 4860.0
+          },
+          {
+            "account": "112330 CGST Payable",
+            "label": "9% CGST S",
+            "debit": 0.0,
+            "credit": 4860.0
+          },
+          {
+            "account": "100400 Debtors",
+            "label": "INV/26-27/0001",
+            "debit": 63720.0,
+            "credit": 0.0
+          },
+          {
+            "account": "100330 Stock Interim (Delivered)",
+            "label": "Detergent Powder 1kg",
+            "debit": 0.0,
+            "credit": 22080.0
+          },
+          {
+            "account": "212400 Cost of Goods Sold",
+            "label": "Detergent Powder 1kg",
+            "debit": 22080.0,
+            "credit": 0.0
+          },
+          {
+            "account": "100330 Stock Interim (Delivered)",
+            "label": "Toilet Soap 100g x4",
+            "debit": 0.0,
+            "credit": 17700.0
+          },
+          {
+            "account": "212400 Cost of Goods Sold",
+            "label": "Toilet Soap 100g x4",
+            "debit": 17700.0,
+            "credit": 0.0
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cycle": "O2C-1",
+    "step": "5. Customer receipt, full",
+    "document": "INV/26-27/0001",
+    "note": "Receipt reduces the receivable; any short payment stays open on the customer ledger and shows in aging.",
+    "entries": [
+      {
+        "move": "PBNK1/26-27/0002",
+        "date": "2026-11-05",
+        "journal": "Bank",
+        "lines": [
+          {
+            "account": "100203 Outstanding Receipts",
+            "label": "Manual Payment: INV/26-27/0001",
+            "debit": 63720.0,
+            "credit": 0.0
+          },
+          {
+            "account": "100400 Debtors",
+            "label": "Manual Payment: INV/26-27/0001",
+            "debit": 0.0,
+            "credit": 63720.0
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cycle": "O2C-2",
+    "step": "1. Quotation",
+    "document": "S00002",
+    "note": "Draft sales quotation. No accounting impact.",
+    "entries": []
+  },
+  {
+    "cycle": "O2C-2",
+    "step": "2. Confirm sales order",
+    "document": "S00002",
+    "note": "Customer commitment and stock reservation. No journal entry yet.",
+    "entries": []
+  },
+  {
+    "cycle": "O2C-2",
+    "step": "3. Delivery",
+    "document": "WH/OUT/00002",
+    "note": "Goods leave at average cost: Inventory is credited against the Stock Interim (Delivered) clearing account.",
+    "entries": [
+      {
+        "move": "STJ/26-27/11/0007",
+        "date": "2026-11-05",
+        "journal": "Inventory Valuation",
+        "lines": [
+          {
+            "account": "100310 Inventories",
+            "label": "WH/OUT/00002 - Shampoo 340ml",
+            "debit": 0.0,
+            "credit": 22320.0
+          },
+          {
+            "account": "100330 Stock Interim (Delivered)",
+            "label": "WH/OUT/00002 - Shampoo 340ml",
+            "debit": 22320.0,
+            "credit": 0.0
+          }
+        ]
+      },
+      {
+        "move": "STJ/26-27/11/0006",
+        "date": "2026-11-05",
+        "journal": "Inventory Valuation",
+        "lines": [
+          {
+            "account": "100310 Inventories",
+            "label": "WH/OUT/00002 - Detergent Powder 1kg",
+            "debit": 0.0,
+            "credit": 9200.0
+          },
+          {
+            "account": "100330 Stock Interim (Delivered)",
+            "label": "WH/OUT/00002 - Detergent Powder 1kg",
+            "debit": 9200.0,
+            "credit": 0.0
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cycle": "O2C-2",
+    "step": "4. Customer invoice",
+    "document": "INV/26-27/0002",
+    "note": "Revenue and output GST recognised (fiscal position: Inter State). With perpetual inventory Odoo also moves the cost of the delivered goods from Stock Interim (Delivered) into Cost of Goods Sold, matching cost to revenue.",
+    "entries": [
+      {
+        "move": "INV/26-27/0002",
+        "date": "2026-11-05",
+        "journal": "Customer Invoices",
+        "lines": [
+          {
+            "account": "200110 Local Sales",
+            "label": "Shampoo 340ml",
+            "debit": 0.0,
+            "credit": 29880.0
+          },
+          {
+            "account": "200110 Local Sales",
+            "label": "Detergent Powder 1kg",
+            "debit": 0.0,
+            "credit": 12500.0
+          },
+          {
+            "account": "112340 IGST Payable",
+            "label": "18% IGST S",
+            "debit": 0.0,
+            "credit": 7628.4
+          },
+          {
+            "account": "100400 Debtors",
+            "label": "INV/26-27/0002",
+            "debit": 50008.4,
+            "credit": 0.0
+          },
+          {
+            "account": "100330 Stock Interim (Delivered)",
+            "label": "Shampoo 340ml",
+            "debit": 0.0,
+            "credit": 22320.0
+          },
+          {
+            "account": "212400 Cost of Goods Sold",
+            "label": "Shampoo 340ml",
+            "debit": 22320.0,
+            "credit": 0.0
+          },
+          {
+            "account": "100330 Stock Interim (Delivered)",
+            "label": "Detergent Powder 1kg",
+            "debit": 0.0,
+            "credit": 9200.0
+          },
+          {
+            "account": "212400 Cost of Goods Sold",
+            "label": "Detergent Powder 1kg",
+            "debit": 9200.0,
+            "credit": 0.0
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cycle": "O2C-2",
+    "step": "5. Customer receipt, partial (60%)",
+    "document": "INV/26-27/0002",
+    "note": "Receipt reduces the receivable; any short payment stays open on the customer ledger and shows in aging.",
+    "entries": [
+      {
+        "move": "PBNK1/26-27/0003",
+        "date": "2026-11-05",
+        "journal": "Bank",
+        "lines": [
+          {
+            "account": "100203 Outstanding Receipts",
+            "label": "Manual Payment: INV/26-27/0002",
+            "debit": 30005.04,
+            "credit": 0.0
+          },
+          {
+            "account": "100400 Debtors",
+            "label": "Manual Payment: INV/26-27/0002",
+            "debit": 0.0,
+            "credit": 30005.04
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cycle": "P2P-2",
+    "step": "1. Request for quotation",
+    "document": "P00002",
+    "note": "Draft purchase order. No accounting impact.",
+    "entries": []
+  },
+  {
+    "cycle": "P2P-2",
+    "step": "2. Confirm purchase order",
+    "document": "P00002",
+    "note": "Commitment to the vendor. Still no journal entry: nothing has been received or billed.",
+    "entries": []
+  },
+  {
+    "cycle": "P2P-2",
+    "step": "3. Goods receipt (GRN)",
+    "document": "WH/IN/00002",
+    "note": "Stock enters the warehouse at purchase cost. Inventory is debited against the Stock Interim (Received) clearing account until the vendor bill arrives.",
+    "entries": [
+      {
+        "move": "STJ/26-27/11/0008",
+        "date": "2026-11-05",
+        "journal": "Inventory Valuation",
+        "lines": [
+          {
+            "account": "100320 Stock Interim (Received)",
+            "label": "WH/IN/00002 - Shampoo 340ml",
+            "debit": 0.0,
+            "credit": 36400.0
+          },
+          {
+            "account": "100310 Inventories",
+            "label": "WH/IN/00002 - Shampoo 340ml",
+            "debit": 36400.0,
+            "credit": 0.0
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cycle": "P2P-2",
+    "step": "4. Vendor bill (3-way match)",
+    "document": "BILL/26-27/11/0002",
+    "note": "Bill matched to the PO and the receipt. It clears Stock Interim (Received), books input CGST and SGST as recoverable credit, and raises the payable to the vendor.",
+    "entries": [
+      {
+        "move": "BILL/26-27/11/0002",
+        "date": "2026-11-05",
+        "journal": "Vendor Bills",
+        "lines": [
+          {
+            "account": "100320 Stock Interim (Received)",
+            "label": "Shampoo 340ml",
+            "debit": 36400.0,
+            "credit": 0.0
+          },
+          {
+            "account": "100510 SGST Receivable",
+            "label": "9% SGST P",
+            "debit": 3276.0,
+            "credit": 0.0
+          },
+          {
+            "account": "100520 CGST Receivable",
+            "label": "9% CGST P",
+            "debit": 3276.0,
+            "credit": 0.0
+          },
+          {
+            "account": "112110 Creditors",
+            "label": "KPC/0002",
+            "debit": 0.0,
+            "credit": 42952.0
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cycle": "P2P-3",
+    "step": "1. Request for quotation",
+    "document": "P00003",
+    "note": "Draft purchase order. No accounting impact.",
+    "entries": []
+  },
+  {
+    "cycle": "P2P-3",
+    "step": "2. Confirm purchase order",
+    "document": "P00003",
+    "note": "Commitment to the vendor. Still no journal entry: nothing has been received or billed.",
+    "entries": []
+  },
+  {
+    "cycle": "P2P-3",
+    "step": "3. Goods receipt (GRN)",
+    "document": "WH/IN/00003",
+    "note": "Stock enters the warehouse at purchase cost. Inventory is debited against the Stock Interim (Received) clearing account until the vendor bill arrives.",
+    "entries": [
+      {
+        "move": "STJ/26-27/11/0009",
+        "date": "2026-11-05",
+        "journal": "Inventory Valuation",
+        "lines": [
+          {
+            "account": "100320 Stock Interim (Received)",
+            "label": "WH/IN/00003 - Toilet Soap 100g x4",
+            "debit": 0.0,
+            "credit": 35400.0
+          },
+          {
+            "account": "100310 Inventories",
+            "label": "WH/IN/00003 - Toilet Soap 100g x4",
+            "debit": 35400.0,
+            "credit": 0.0
+          }
+        ]
+      }
+    ]
+  }
+]

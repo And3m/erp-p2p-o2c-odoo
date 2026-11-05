@@ -1,0 +1,10 @@
+account_key,account_code,account_name,account_type,statement,normal_balance,pnl_group
+1,1000,Cash at Bank,Asset,BS,Debit,
+2,1100,Accounts Receivable,Asset,BS,Debit,
+3,1200,Inventory,Asset,BS,Debit,
+4,1300,Input GST Credit,Asset,BS,Debit,
+5,2000,Accounts Payable,Liability,BS,Credit,
+6,2100,Output GST Payable,Liability,BS,Credit,
+7,3000,Share Capital,Equity,BS,Credit,
+8,4000,Sales Revenue,Revenue,PL,Credit,Revenue
+9,5000,Cost of Goods Sold,Expense,PL,Debit,Cost of Sales

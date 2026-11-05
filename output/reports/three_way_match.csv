@@ -1,0 +1,6 @@
+purchase_order,product,qty_ordered,qty_received,qty_billed,po_price,billed_price,match_status
+P00001,Detergent Powder 1kg,600.0,600.0,600.0,92.0,92.0,Matched
+P00001,Shampoo 340ml,250.0,250.0,250.0,186.0,186.0,Matched
+P00001,Toilet Soap 100g x4,400.0,400.0,400.0,118.0,118.0,Matched
+P00002,Shampoo 340ml,200.0,200.0,200.0,182.0,182.0,Matched
+P00003,Toilet Soap 100g x4,300.0,300.0,0.0,118.0,,Awaiting bill

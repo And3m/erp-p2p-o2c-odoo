@@ -1,0 +1,2 @@
+purchase_order,vendor,product,qty_received,qty_invoiced,qty_not_billed,price_unit,value_not_billed
+P00003,Kaveri Personal Care Pvt Ltd,Toilet Soap 100g x4,300.0,0.0,300.0,118.0,35400.0

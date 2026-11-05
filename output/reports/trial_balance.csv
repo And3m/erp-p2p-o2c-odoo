@@ -1,0 +1,17 @@
+account_code,account_name,account_type,total_debit,total_credit,balance
+100201,Bank,asset_cash,500000.0,0.0,500000.0
+100203,Outstanding Receipts,asset_current,93725.04,0.0,93725.04
+100204,Outstanding Payments,asset_current,0.0,175702.0,-175702.0
+100310,Inventories,asset_current,220700.0,71300.0,149400.0
+100320,Stock Interim (Received),asset_current,185300.0,220700.0,-35400.0
+100330,Stock Interim (Delivered),asset_current,71300.0,71300.0,0.0
+100400,Debtors,asset_receivable,113728.4,93725.04,20003.36
+100510,SGST Receivable,asset_current,16677.0,0.0,16677.0
+100520,CGST Receivable,asset_current,16677.0,0.0,16677.0
+110100,Share Capital,equity,0.0,500000.0,-500000.0
+112110,Creditors,liability_payable,175702.0,218654.0,-42952.0
+112320,SGST Payable,liability_current,0.0,4860.0,-4860.0
+112330,CGST Payable,liability_current,0.0,4860.0,-4860.0
+112340,IGST Payable,liability_current,0.0,7628.4,-7628.4
+200110,Local Sales,income,0.0,96380.0,-96380.0
+212400,Cost of Goods Sold,expense_direct_cost,71300.0,0.0,71300.0

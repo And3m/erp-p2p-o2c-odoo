@@ -1,0 +1,2 @@
+customer_id,customer_name,city,aging_bucket,aging_bucket_sort,open_invoices,open_amount
+P0009,Green Valley Mart,Hyderabad,Current,1,1,20003.36

@@ -1,0 +1,18 @@
+odoo_account_code,odoo_account_name,dw_account_code,note
+100310,Inventories,1200,stock valuation account
+100320,Stock Interim (Received),1200,goods received not yet billed; clears on the vendor bill
+100330,Stock Interim (Delivered),1200,goods delivered not yet invoiced; clears on the customer invoice
+100400,Debtors,1100,receivable control account
+100510,SGST Receivable,1300,input tax credit
+100520,CGST Receivable,1300,input tax credit
+100530,IGST Receivable,1300,input tax credit
+112110,Creditors,2000,payable control account
+112320,SGST Payable,2100,output tax
+112330,CGST Payable,2100,output tax
+112340,IGST Payable,2100,output tax
+200110,Local Sales,4000,
+212400,Cost of Goods Sold,5000,
+100201,Bank,1000,
+100203,Outstanding Receipts,1000,receipts awaiting bank statement reconciliation
+100204,Outstanding Payments,1000,payments awaiting bank statement reconciliation
+110100,Share Capital,3000,created by the walkthrough setup

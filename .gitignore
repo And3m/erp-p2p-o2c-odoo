@@ -1,0 +1,6 @@
+odoo-src/
+venv/
+filestore/
+output/*.sqlite
+__pycache__/
+*.pyc
